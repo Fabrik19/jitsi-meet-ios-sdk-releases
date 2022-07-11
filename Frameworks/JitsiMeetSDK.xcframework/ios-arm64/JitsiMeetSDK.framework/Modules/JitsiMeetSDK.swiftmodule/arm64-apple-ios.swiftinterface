@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name JitsiMeetSDK
 import AVKit
 import CallKit
@@ -13,10 +13,6 @@ public protocol PiPViewCoordinatorDelegate : AnyObject {
   func exitPictureInPicture()
 }
 public class PiPViewCoordinator {
-  public var dragBoundInsets: UIKit.UIEdgeInsets {
-    get
-    set
-  }
   public enum Position {
     case lowerRightCorner
     case upperRightCorner
@@ -28,7 +24,11 @@ public class PiPViewCoordinator {
       get
     }
   }
-  public var initialPositionInSuperview: JitsiMeetSDK.PiPViewCoordinator.Position
+  public var dragBoundInsets: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  final public let initialPositionInSuperView: JitsiMeetSDK.PiPViewCoordinator.Position
   @available(*, deprecated, message: "The PiP window size is now fixed to 150px.")
   public var c: CoreGraphics.CGFloat
   weak public var delegate: JitsiMeetSDK.PiPViewCoordinatorDelegate?
