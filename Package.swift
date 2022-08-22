@@ -11,7 +11,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "JitsiMeetSDK",
-            targets: ["JitsiMeetSDK"])
+            targets: ["JitsiMeetSDK", "WebRTC"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,6 +22,10 @@ let package = Package(
         .binaryTarget(
             name: "JitsiMeetSDK",
             path: "Frameworks/JitsiMeetSDK.xcframework"
+        ),
+        .binaryTarget(
+            name: "WebRTC",
+            path: "Frameworks/WebRTC.xcframework"
         )
         
     ]
