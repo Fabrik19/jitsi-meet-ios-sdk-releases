@@ -11,10 +11,14 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "JitsiMeetSDK",
-            targets: ["JitsiMeetSDK", "WebRTC"])
+            targets: ["JitsiMeetSDK"]
+            
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
+        .package(url: "https://github.com/Giphy/giphy-ios-sdk", .exact("2.1.20")),
+        .package(url: "https://github.com/jitsi/webrtc", .exact("106.0.1"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -22,11 +26,6 @@ let package = Package(
         .binaryTarget(
             name: "JitsiMeetSDK",
             path: "Frameworks/JitsiMeetSDK.xcframework"
-        ),
-        .binaryTarget(
-            name: "WebRTC",
-            path: "Frameworks/WebRTC.xcframework"
         )
-        
     ]
 )
